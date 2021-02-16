@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>URL Shrtnr</title>
+  <meta name="description" content="URL Shrtnr">
+  <meta name="author" content="Jesse Fimbres">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body style="background-color:powderblue;text-align:center;">
+  <h1>URL Shrtnr</h1>
+  <form action="/genShortURL" method="post">
+    <label for="bigURL">Big URL: </label>
+    <input type="url" name="bigURL" id="bigURL">
+    <button type="submit">Shorten This!</button>
+  </form>
+
+
+  <table style="margin-left:auto;margin-right:auto;">
+    <thead>
+      <tr>
+        <th>Original URL</th>
+        <th>Shortened URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% UrlList.forEach(shortURL => { %>
+        <tr>
+          <td><a href="<%= shortURL.longUrl %>"><%= shortURL.longUrl %></a></td>
+          <td><a href="<%= shortURL.shortUrl %>">localhost:<%=port %>/<%= shortURL.shortUrl %></a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+</body>
+<footer>
+<p><i>Designed by Jesse Fimbres in California</i></p>
+</footer>
+</html>
